@@ -1,0 +1,539 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Money Heist | Audio Library</title>
+
+    <style>
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: Arial, Helvetica, sans-serif;
+            background: #050505;
+            color: #ffffff;
+            line-height: 1.6;
+        }
+
+        /* NAVIGATION */
+
+        nav {
+            background: #080808;
+            border-bottom: 1px solid #333;
+            padding: 18px 8%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+
+        .logo {
+            font-size: 20px;
+            font-weight: bold;
+            color: #e50914;
+        }
+
+        nav a {
+            color: #ffffff;
+            text-decoration: none;
+            margin-left: 25px;
+            font-size: 14px;
+        }
+
+        nav a:hover {
+            color: #e50914;
+        }
+
+        /* HERO */
+
+        .hero {
+            min-height: 55vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            padding: 60px 20px;
+            background:
+                radial-gradient(circle at center, #260000 0%, #080000 40%, #050505 75%);
+        }
+
+        .hero h1 {
+            font-size: 60px;
+            letter-spacing: 5px;
+            color: #e50914;
+            margin-bottom: 10px;
+        }
+
+        .hero h2 {
+            font-size: 30px;
+            margin-bottom: 20px;
+        }
+
+        .hero p {
+            max-width: 650px;
+            color: #bbbbbb;
+            font-size: 17px;
+        }
+
+        /* SECTION */
+
+        section {
+            padding: 70px 8%;
+        }
+
+        .section-title {
+            text-align: center;
+            margin-bottom: 45px;
+        }
+
+        .section-title h2 {
+            font-size: 35px;
+            margin-bottom: 10px;
+        }
+
+        .section-title p {
+            color: #999;
+        }
+
+        /* AUDIO CARDS */
+
+        .audio-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 25px;
+            max-width: 1100px;
+            margin: auto;
+        }
+
+        .audio-card {
+            background: #101010;
+            border: 1px solid #333;
+            border-radius: 12px;
+            padding: 30px;
+            transition: 0.3s;
+        }
+
+        .audio-card:hover {
+            transform: translateY(-5px);
+            border-color: #e50914;
+            box-shadow: 0 10px 30px rgba(229, 9, 20, 0.15);
+        }
+
+        .audio-icon {
+            font-size: 40px;
+            margin-bottom: 15px;
+        }
+
+        .chapter {
+            color: #e50914;
+            font-size: 13px;
+            font-weight: bold;
+            letter-spacing: 1px;
+            margin-bottom: 8px;
+        }
+
+        .audio-card h3 {
+            font-size: 22px;
+            margin-bottom: 12px;
+        }
+
+        .audio-card p {
+            color: #aaa;
+            margin-bottom: 20px;
+            font-size: 15px;
+        }
+
+        /* AUDIO PLAYER */
+
+        audio {
+            width: 100%;
+        }
+
+        .coming-soon {
+            display: inline-block;
+            padding: 10px 18px;
+            border: 1px solid #555;
+            border-radius: 6px;
+            color: #888;
+            font-size: 13px;
+        }
+
+        /* FUTURE SECTION */
+
+        .future {
+            background: #0a0a0a;
+            text-align: center;
+        }
+
+        .future-box {
+            max-width: 800px;
+            margin: auto;
+        }
+
+        .future-box h2 {
+            color: #e50914;
+            margin-bottom: 15px;
+        }
+
+        .future-box p {
+            color: #aaa;
+        }
+
+        /* BACK BUTTON */
+
+        .back-section {
+            text-align: center;
+            padding-top: 20px;
+        }
+
+        .back-btn {
+            display: inline-block;
+            padding: 12px 25px;
+            background: #e50914;
+            color: white;
+            text-decoration: none;
+            border-radius: 6px;
+            font-weight: bold;
+            transition: 0.3s;
+        }
+
+        .back-btn:hover {
+            background: #b20710;
+        }
+
+        /* FOOTER */
+
+        footer {
+            text-align: center;
+            padding: 30px;
+            background: #030303;
+            border-top: 1px solid #222;
+            color: #666;
+            font-size: 14px;
+        }
+
+        /* MOBILE */
+
+        @media (max-width: 700px) {
+
+            nav {
+                flex-direction: column;
+                gap: 12px;
+            }
+
+            nav a {
+                margin-left: 10px;
+                margin-right: 10px;
+            }
+
+            .hero h1 {
+                font-size: 42px;
+            }
+
+            .hero h2 {
+                font-size: 23px;
+            }
+
+            section {
+                padding: 50px 6%;
+            }
+
+        }
+
+    </style>
+</head>
+
+<body>
+
+    <!-- NAVIGATION -->
+
+    <nav>
+
+        <div class="logo">
+            MONEY HEIST
+        </div>
+
+        <div>
+            <a href="money-heist.html">Book</a>
+            <a href="money-heist-resources.html">Resources</a>
+            <a href="money-heist-videos.html">Videos</a>
+        </div>
+
+    </nav>
+
+
+    <!-- HERO -->
+
+    <section class="hero">
+
+        <h1>MONEY HEIST</h1>
+
+        <h2>Audio Library</h2>
+
+        <p>
+            Listen to strategic lessons from Money Heist
+            and explore the ideas behind preparation,
+            decision-making, leadership and psychology.
+        </p>
+
+    </section>
+
+
+    <!-- AUDIO LIBRARY -->
+
+    <section>
+
+        <div class="section-title">
+
+            <h2>🎧 Chapter Audio</h2>
+
+            <p>
+                Audio explanations for each strategic lesson.
+            </p>
+
+        </div>
+
+
+        <div class="audio-grid">
+
+
+            <!-- AUDIO 1 -->
+
+            <div class="audio-card">
+
+                <div class="audio-icon">
+                    🎧
+                </div>
+
+                <div class="chapter">
+                    CHAPTER 3.1
+                </div>
+
+                <h3>
+                    The Power of Radical Preparation
+                </h3>
+
+                <p>
+                    Learn how preparation, research and
+                    simulation can improve execution and
+                    reduce unexpected problems.
+                </p>
+
+                <span class="coming-soon">
+                    Audio Coming Soon
+                </span>
+
+                <!--
+                Later replace the span above with:
+
+                <audio controls>
+                    <source src="audio/radical-preparation.mp3" type="audio/mpeg">
+                </audio>
+                -->
+
+            </div>
+
+
+            <!-- AUDIO 2 -->
+
+            <div class="audio-card">
+
+                <div class="audio-icon">
+                    🎧
+                </div>
+
+                <div class="chapter">
+                    CHAPTER 3.2
+                </div>
+
+                <h3>
+                    Building Resilient Decision Trees
+                </h3>
+
+                <p>
+                    Explore Plan B, Plan C and contingency
+                    thinking for handling uncertainty and
+                    unexpected failures.
+                </p>
+
+                <span class="coming-soon">
+                    Audio Coming Soon
+                </span>
+
+                <!--
+                Later:
+
+                <audio controls>
+                    <source src="audio/decision-trees.mp3" type="audio/mpeg">
+                </audio>
+                -->
+
+            </div>
+
+
+            <!-- AUDIO 3 -->
+
+            <div class="audio-card">
+
+                <div class="audio-icon">
+                    🎧
+                </div>
+
+                <div class="chapter">
+                    CHAPTER 3.3
+                </div>
+
+                <h3>
+                    Talent Alignment & Team Dynamics
+                </h3>
+
+                <p>
+                    Understand how individual strengths,
+                    roles, communication and team relationships
+                    affect performance.
+                </p>
+
+                <span class="coming-soon">
+                    Audio Coming Soon
+                </span>
+
+                <!--
+                Later:
+
+                <audio controls>
+                    <source src="audio/team-dynamics.mp3" type="audio/mpeg">
+                </audio>
+                -->
+
+            </div>
+
+
+            <!-- AUDIO 4 -->
+
+            <div class="audio-card">
+
+                <div class="audio-icon">
+                    🎧
+                </div>
+
+                <div class="chapter">
+                    CHAPTER 3.4
+                </div>
+
+                <h3>
+                    Emotional Discipline Under Pressure
+                </h3>
+
+                <p>
+                    Discover how emotional reactions can
+                    influence decisions and why maintaining
+                    clarity matters under pressure.
+                </p>
+
+                <span class="coming-soon">
+                    Audio Coming Soon
+                </span>
+
+                <!--
+                Later:
+
+                <audio controls>
+                    <source src="audio/emotional-discipline.mp3" type="audio/mpeg">
+                </audio>
+                -->
+
+            </div>
+
+
+            <!-- AUDIO 5 -->
+
+            <div class="audio-card">
+
+                <div class="audio-icon">
+                    🎧
+                </div>
+
+                <div class="chapter">
+                    CHAPTER 3.5
+                </div>
+
+                <h3>
+                    Mastering the Narrative
+                </h3>
+
+                <p>
+                    Learn how storytelling, public perception
+                    and a strong narrative can influence how
+                    people understand an idea.
+                </p>
+
+                <span class="coming-soon">
+                    Audio Coming Soon
+                </span>
+
+                <!--
+                Later:
+
+                <audio controls>
+                    <source src="audio/mastering-narrative.mp3" type="audio/mpeg">
+                </audio>
+                -->
+
+            </div>
+
+
+        </div>
+
+    </section>
+
+
+    <!-- FUTURE AUDIO -->
+
+    <section class="future">
+
+        <div class="future-box">
+
+            <h2>More Than Audio</h2>
+
+            <p>
+                Future versions of the Audio Library can include
+                chapter explanations, short summaries, expert
+                discussions, audiobook-style lessons and
+                downloadable audio resources.
+            </p>
+
+        </div>
+
+    </section>
+
+
+    <!-- BACK -->
+
+    <section class="back-section">
+
+        <a href="money-heist.html" class="back-btn">
+            ← Back to Money Heist
+        </a>
+
+    </section>
+
+
+    <!-- FOOTER -->
+
+    <footer>
+
+        © 2026 Srikant Behera · Money Heist Digital Experience
+
+    </footer>
+
+</body>
+</html>
