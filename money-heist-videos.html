@@ -1,0 +1,532 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Money Heist | Video Library</title>
+
+<style>
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, Helvetica, sans-serif;
+    background: #080808;
+    color: #f5f5f5;
+    line-height: 1.6;
+}
+
+/* NAVIGATION */
+
+nav {
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    background: #0d0d0d;
+    border-bottom: 1px solid #222;
+    padding: 18px 8%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.logo {
+    color: #e50914;
+    font-size: 22px;
+    font-weight: bold;
+    letter-spacing: 1px;
+}
+
+nav ul {
+    list-style: none;
+    display: flex;
+    gap: 25px;
+}
+
+nav ul li a {
+    color: #ddd;
+    text-decoration: none;
+    font-size: 14px;
+}
+
+nav ul li a:hover {
+    color: #e50914;
+}
+
+/* HERO */
+
+.hero {
+    padding: 100px 20px;
+    text-align: center;
+    background: linear-gradient(
+        rgba(0,0,0,0.85),
+        rgba(0,0,0,0.95)
+    );
+}
+
+.hero h1 {
+    font-size: 60px;
+    color: #e50914;
+    letter-spacing: 4px;
+    margin-bottom: 15px;
+}
+
+.hero h2 {
+    font-size: 25px;
+    font-weight: normal;
+    margin-bottom: 20px;
+}
+
+.hero p {
+    max-width: 700px;
+    margin: auto;
+    color: #aaa;
+}
+
+.back-btn {
+    display: inline-block;
+    margin-top: 30px;
+    padding: 12px 24px;
+    border: 1px solid #e50914;
+    color: white;
+    text-decoration: none;
+    border-radius: 5px;
+}
+
+.back-btn:hover {
+    background: #e50914;
+}
+
+/* SECTIONS */
+
+section {
+    padding: 70px 8%;
+}
+
+.section-title {
+    text-align: center;
+    margin-bottom: 50px;
+}
+
+.section-title h2 {
+    font-size: 36px;
+    margin-bottom: 10px;
+}
+
+.section-title p {
+    color: #999;
+}
+
+/* VIDEO GRID */
+
+.video-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 30px;
+}
+
+.video-card {
+    background: #111;
+    border: 1px solid #292929;
+    border-radius: 10px;
+    overflow: hidden;
+    transition: 0.3s;
+}
+
+.video-card:hover {
+    transform: translateY(-5px);
+    border-color: #e50914;
+}
+
+/* VIDEO PLACEHOLDER */
+
+.video-placeholder {
+    height: 190px;
+    background: #1a1a1a;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 50px;
+    color: #e50914;
+}
+
+.video-content {
+    padding: 25px;
+}
+
+.chapter {
+    color: #e50914;
+    font-size: 13px;
+    font-weight: bold;
+    letter-spacing: 1px;
+}
+
+.video-content h3 {
+    margin: 10px 0;
+    font-size: 22px;
+}
+
+.video-content p {
+    color: #aaa;
+    margin-bottom: 20px;
+}
+
+.watch-btn {
+    display: inline-block;
+    padding: 10px 18px;
+    background: #e50914;
+    color: white;
+    text-decoration: none;
+    border-radius: 5px;
+    font-weight: bold;
+    font-size: 14px;
+}
+
+.watch-btn:hover {
+    background: #b20710;
+}
+
+/* FUTURE CONTENT */
+
+.future {
+    background: #0d0d0d;
+    text-align: center;
+}
+
+.future-box {
+    max-width: 800px;
+    margin: auto;
+    padding: 40px;
+    border: 1px dashed #444;
+    border-radius: 10px;
+}
+
+.future-box h3 {
+    margin-bottom: 15px;
+}
+
+.future-box p {
+    color: #aaa;
+}
+
+/* FOOTER */
+
+footer {
+    text-align: center;
+    padding: 30px;
+    background: #050505;
+    color: #777;
+    font-size: 14px;
+}
+
+/* MOBILE */
+
+@media (max-width: 700px) {
+
+    nav {
+        flex-direction: column;
+        gap: 15px;
+    }
+
+    nav ul {
+        gap: 12px;
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+
+    .hero h1 {
+        font-size: 42px;
+    }
+
+    .hero h2 {
+        font-size: 20px;
+    }
+
+    section {
+        padding: 55px 5%;
+    }
+
+}
+
+</style>
+</head>
+
+<body>
+
+<!-- NAVIGATION -->
+
+<nav>
+
+    <div class="logo">
+        MONEY HEIST
+    </div>
+
+    <ul>
+
+        <li>
+            <a href="money-heist.html">
+                Book
+            </a>
+        </li>
+
+        <li>
+            <a href="money-heist-resources.html">
+                Resources
+            </a>
+        </li>
+
+        <li>
+            <a href="money-heist.html#lessons">
+                Lessons
+            </a>
+        </li>
+
+    </ul>
+
+</nav>
+
+
+<!-- HERO -->
+
+<header class="hero">
+
+    <h1>MONEY HEIST</h1>
+
+    <h2>Video Library</h2>
+
+    <p>
+        Explore visual explanations of the strategic ideas
+        discussed in the Money Heist digital book.
+    </p>
+
+    <a href="money-heist.html" class="back-btn">
+        ← Back to Money Heist
+    </a>
+
+</header>
+
+
+<!-- VIDEOS -->
+
+<section>
+
+    <div class="section-title">
+
+        <h2>Strategic Video Lessons</h2>
+
+        <p>
+            Each video explores one of the major ideas from the book.
+        </p>
+
+    </div>
+
+
+    <div class="video-grid">
+
+
+        <!-- VIDEO 1 -->
+
+        <div class="video-card">
+
+            <div class="video-placeholder">
+                ▶
+            </div>
+
+            <div class="video-content">
+
+                <span class="chapter">
+                    CHAPTER 3.1
+                </span>
+
+                <h3>
+                    The Power of Radical Preparation
+                </h3>
+
+                <p>
+                    Learn how preparation, research and simulation
+                    can influence successful execution.
+                </p>
+
+                <a href="#" class="watch-btn">
+                    Video Coming Soon
+                </a>
+
+            </div>
+
+        </div>
+
+
+        <!-- VIDEO 2 -->
+
+        <div class="video-card">
+
+            <div class="video-placeholder">
+                ▶
+            </div>
+
+            <div class="video-content">
+
+                <span class="chapter">
+                    CHAPTER 3.2
+                </span>
+
+                <h3>
+                    Building Resilient Decision Trees
+                </h3>
+
+                <p>
+                    Understand contingency planning, Plan B,
+                    Plan C and managing unexpected situations.
+                </p>
+
+                <a href="#" class="watch-btn">
+                    Video Coming Soon
+                </a>
+
+            </div>
+
+        </div>
+
+
+        <!-- VIDEO 3 -->
+
+        <div class="video-card">
+
+            <div class="video-placeholder">
+                ▶
+            </div>
+
+            <div class="video-content">
+
+                <span class="chapter">
+                    CHAPTER 3.3
+                </span>
+
+                <h3>
+                    Talent Alignment & Team Dynamics
+                </h3>
+
+                <p>
+                    Explore how different talents and personalities
+                    affect team performance.
+                </p>
+
+                <a href="#" class="watch-btn">
+                    Video Coming Soon
+                </a>
+
+            </div>
+
+        </div>
+
+
+        <!-- VIDEO 4 -->
+
+        <div class="video-card">
+
+            <div class="video-placeholder">
+                ▶
+            </div>
+
+            <div class="video-content">
+
+                <span class="chapter">
+                    CHAPTER 3.4
+                </span>
+
+                <h3>
+                    Emotional Discipline Under Pressure
+                </h3>
+
+                <p>
+                    Explore how emotional reactions can influence
+                    decisions during high-pressure situations.
+                </p>
+
+                <a href="#" class="watch-btn">
+                    Video Coming Soon
+                </a>
+
+            </div>
+
+        </div>
+
+
+        <!-- VIDEO 5 -->
+
+        <div class="video-card">
+
+            <div class="video-placeholder">
+                ▶
+            </div>
+
+            <div class="video-content">
+
+                <span class="chapter">
+                    CHAPTER 3.5
+                </span>
+
+                <h3>
+                    Mastering the Narrative
+                </h3>
+
+                <p>
+                    Understand storytelling, communication,
+                    public perception and strategic narratives.
+                </p>
+
+                <a href="#" class="watch-btn">
+                    Video Coming Soon
+                </a>
+
+            </div>
+
+        </div>
+
+
+    </div>
+
+</section>
+
+
+<!-- FUTURE -->
+
+<section class="future">
+
+    <div class="future-box">
+
+        <h3>
+            🎬 More Videos Coming Soon
+        </h3>
+
+        <p>
+            This section will eventually contain video lessons,
+            explanations, discussions and visual breakdowns
+            connected to the Money Heist book.
+        </p>
+
+    </div>
+
+</section>
+
+
+<!-- FOOTER -->
+
+<footer>
+
+    © 2026 Srikant Behera
+
+    <br>
+
+    Digital Library — Connecting physical books with digital experiences.
+
+</footer>
+
+
+</body>
+</html>
