@@ -1,0 +1,649 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Money Heist | Quiz</title>
+
+    <style>
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: Arial, Helvetica, sans-serif;
+            background: #050505;
+            color: #ffffff;
+            line-height: 1.6;
+        }
+
+        /* NAVIGATION */
+
+        nav {
+            background: #080808;
+            border-bottom: 1px solid #333;
+            padding: 18px 8%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+
+        .logo {
+            font-size: 20px;
+            font-weight: bold;
+            color: #e50914;
+        }
+
+        nav a {
+            color: #ffffff;
+            text-decoration: none;
+            margin-left: 25px;
+            font-size: 14px;
+        }
+
+        nav a:hover {
+            color: #e50914;
+        }
+
+        /* HERO */
+
+        .hero {
+            min-height: 50vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            padding: 60px 20px;
+
+            background:
+                radial-gradient(
+                    circle at center,
+                    #300000 0%,
+                    #090000 40%,
+                    #050505 75%
+                );
+        }
+
+        .hero h1 {
+            font-size: 60px;
+            letter-spacing: 5px;
+            color: #e50914;
+            margin-bottom: 10px;
+        }
+
+        .hero h2 {
+            font-size: 30px;
+            margin-bottom: 20px;
+        }
+
+        .hero p {
+            max-width: 650px;
+            color: #bbbbbb;
+            font-size: 17px;
+        }
+
+        /* QUIZ SECTION */
+
+        .quiz-section {
+            padding: 70px 8%;
+        }
+
+        .quiz-container {
+            max-width: 850px;
+            margin: auto;
+        }
+
+        .question-card {
+            background: #101010;
+            border: 1px solid #333;
+            border-radius: 12px;
+            padding: 30px;
+            margin-bottom: 25px;
+        }
+
+        .question-number {
+            color: #e50914;
+            font-weight: bold;
+            font-size: 14px;
+            margin-bottom: 8px;
+        }
+
+        .question-card h3 {
+            font-size: 20px;
+            margin-bottom: 20px;
+        }
+
+        /* OPTIONS */
+
+        .option {
+            display: block;
+            background: #181818;
+            border: 1px solid #333;
+            padding: 13px 16px;
+            border-radius: 7px;
+            margin-bottom: 10px;
+            cursor: pointer;
+            transition: 0.2s;
+        }
+
+        .option:hover {
+            border-color: #e50914;
+            background: #202020;
+        }
+
+        .option input {
+            margin-right: 10px;
+        }
+
+        /* SUBMIT BUTTON */
+
+        .submit-area {
+            text-align: center;
+            margin-top: 35px;
+        }
+
+        .submit-btn {
+            border: none;
+            background: #e50914;
+            color: #ffffff;
+            padding: 14px 30px;
+            border-radius: 7px;
+            font-size: 16px;
+            font-weight: bold;
+            cursor: pointer;
+        }
+
+        .submit-btn:hover {
+            background: #b20710;
+        }
+
+        /* RESULT */
+
+        #result {
+            display: none;
+            margin-top: 40px;
+            padding: 30px;
+            text-align: center;
+            background: #101010;
+            border: 1px solid #e50914;
+            border-radius: 12px;
+        }
+
+        #result h2 {
+            color: #e50914;
+            margin-bottom: 10px;
+        }
+
+        #score {
+            font-size: 30px;
+            font-weight: bold;
+            margin-bottom: 10px;
+        }
+
+        #message {
+            color: #bbbbbb;
+        }
+
+        /* BACK BUTTON */
+
+        .back-section {
+            text-align: center;
+            padding: 20px 8% 70px;
+        }
+
+        .back-btn {
+            display: inline-block;
+            padding: 12px 25px;
+            background: #e50914;
+            color: white;
+            text-decoration: none;
+            border-radius: 6px;
+            font-weight: bold;
+        }
+
+        .back-btn:hover {
+            background: #b20710;
+        }
+
+        /* FOOTER */
+
+        footer {
+            text-align: center;
+            padding: 30px;
+            background: #030303;
+            border-top: 1px solid #222;
+            color: #666;
+            font-size: 14px;
+        }
+
+        /* MOBILE */
+
+        @media (max-width: 700px) {
+
+            nav {
+                flex-direction: column;
+                gap: 12px;
+            }
+
+            nav a {
+                margin-left: 10px;
+                margin-right: 10px;
+            }
+
+            .hero h1 {
+                font-size: 42px;
+            }
+
+            .hero h2 {
+                font-size: 23px;
+            }
+
+            .quiz-section {
+                padding: 50px 6%;
+            }
+
+        }
+
+    </style>
+
+</head>
+
+
+<body>
+
+
+    <!-- NAVIGATION -->
+
+    <nav>
+
+        <div class="logo">
+            MONEY HEIST
+        </div>
+
+        <div>
+
+            <a href="money-heist.html">
+                Book
+            </a>
+
+            <a href="money-heist-resources.html">
+                Resources
+            </a>
+
+            <a href="money-heist-videos.html">
+                Videos
+            </a>
+
+            <a href="money-heist-audio.html">
+                Audio
+            </a>
+
+        </div>
+
+    </nav>
+
+
+    <!-- HERO -->
+
+    <section class="hero">
+
+        <h1>
+            MONEY HEIST
+        </h1>
+
+        <h2>
+            Strategic Quiz
+        </h2>
+
+        <p>
+            Test your understanding of preparation,
+            decision-making, leadership, emotional discipline
+            and narrative building.
+        </p>
+
+    </section>
+
+
+    <!-- QUIZ -->
+
+    <section class="quiz-section">
+
+        <div class="quiz-container">
+
+
+            <!-- QUESTION 1 -->
+
+            <div class="question-card">
+
+                <div class="question-number">
+                    QUESTION 1
+                </div>
+
+                <h3>
+                    What was one of the Professor's most important
+                    strengths?
+                </h3>
+
+                <label class="option">
+                    <input type="radio" name="q1" value="a">
+                    Acting without preparation
+                </label>
+
+                <label class="option">
+                    <input type="radio" name="q1" value="b">
+                    Radical preparation and planning
+                </label>
+
+                <label class="option">
+                    <input type="radio" name="q1" value="c">
+                    Avoiding all information
+                </label>
+
+                <label class="option">
+                    <input type="radio" name="q1" value="d">
+                    Depending entirely on luck
+                </label>
+
+            </div>
+
+
+            <!-- QUESTION 2 -->
+
+            <div class="question-card">
+
+                <div class="question-number">
+                    QUESTION 2
+                </div>
+
+                <h3>
+                    What does having Plan B, Plan C and Plan D
+                    demonstrate?
+                </h3>
+
+                <label class="option">
+                    <input type="radio" name="q2" value="a">
+                    Poor leadership
+                </label>
+
+                <label class="option">
+                    <input type="radio" name="q2" value="b">
+                    Contingency planning
+                </label>
+
+                <label class="option">
+                    <input type="radio" name="q2" value="c">
+                    Lack of preparation
+                </label>
+
+                <label class="option">
+                    <input type="radio" name="q2" value="d">
+                    Random decision-making
+                </label>
+
+            </div>
+
+
+            <!-- QUESTION 3 -->
+
+            <div class="question-card">
+
+                <div class="question-number">
+                    QUESTION 3
+                </div>
+
+                <h3>
+                    Why is talent alignment important in a team?
+                </h3>
+
+                <label class="option">
+                    <input type="radio" name="q3" value="a">
+                    Everyone must perform exactly the same role
+                </label>
+
+                <label class="option">
+                    <input type="radio" name="q3" value="b">
+                    Individual strengths can be matched with suitable roles
+                </label>
+
+                <label class="option">
+                    <input type="radio" name="q3" value="c">
+                    Team members should avoid communication
+                </label>
+
+                <label class="option">
+                    <input type="radio" name="q3" value="d">
+                    Personal conflicts should be encouraged
+                </label>
+
+            </div>
+
+
+            <!-- QUESTION 4 -->
+
+            <div class="question-card">
+
+                <div class="question-number">
+                    QUESTION 4
+                </div>
+
+                <h3>
+                    What can emotional reactions do to a strategy
+                    under pressure?
+                </h3>
+
+                <label class="option">
+                    <input type="radio" name="q4" value="a">
+                    They can disrupt decision-making
+                </label>
+
+                <label class="option">
+                    <input type="radio" name="q4" value="b">
+                    They always improve planning
+                </label>
+
+                <label class="option">
+                    <input type="radio" name="q4" value="c">
+                    They eliminate all risk
+                </label>
+
+                <label class="option">
+                    <input type="radio" name="q4" value="d">
+                    They guarantee success
+                </label>
+
+            </div>
+
+
+            <!-- QUESTION 5 -->
+
+            <div class="question-card">
+
+                <div class="question-number">
+                    QUESTION 5
+                </div>
+
+                <h3>
+                    What is the importance of mastering the narrative?
+                </h3>
+
+                <label class="option">
+                    <input type="radio" name="q5" value="a">
+                    Ignoring communication
+                </label>
+
+                <label class="option">
+                    <input type="radio" name="q5" value="b">
+                    Influencing how people understand an idea
+                </label>
+
+                <label class="option">
+                    <input type="radio" name="q5" value="c">
+                    Avoiding every public message
+                </label>
+
+                <label class="option">
+                    <input type="radio" name="q5" value="d">
+                    Removing the need for leadership
+                </label>
+
+            </div>
+
+
+            <!-- SUBMIT -->
+
+            <div class="submit-area">
+
+                <button
+                    class="submit-btn"
+                    onclick="checkQuiz()"
+                >
+                    Submit Quiz
+                </button>
+
+            </div>
+
+
+            <!-- RESULT -->
+
+            <div id="result">
+
+                <h2>
+                    Your Result
+                </h2>
+
+                <div id="score">
+                </div>
+
+                <p id="message">
+                </p>
+
+            </div>
+
+
+        </div>
+
+    </section>
+
+
+    <!-- BACK -->
+
+    <div class="back-section">
+
+        <a
+            href="money-heist.html"
+            class="back-btn"
+        >
+            ← Back to Money Heist
+        </a>
+
+    </div>
+
+
+    <!-- FOOTER -->
+
+    <footer>
+
+        © 2026 Srikant Behera · Money Heist Digital Experience
+
+    </footer>
+
+
+    <!-- QUIZ JAVASCRIPT -->
+
+    <script>
+
+        function checkQuiz() {
+
+            let score = 0;
+
+            const answers = {
+
+                q1: "b",
+                q2: "b",
+                q3: "b",
+                q4: "a",
+                q5: "b"
+
+            };
+
+
+            for (let question in answers) {
+
+                const selected =
+                    document.querySelector(
+                        'input[name="' +
+                        question +
+                        '"]:checked'
+                    );
+
+                if (selected && selected.value === answers[question]) {
+
+                    score++;
+
+                }
+
+            }
+
+
+            document.getElementById("result").style.display = "block";
+
+            document.getElementById("score").innerHTML =
+                score + " / 5";
+
+
+            let message = "";
+
+
+            if (score === 5) {
+
+                message =
+                    "Excellent! You have a strong understanding of the strategic lessons.";
+
+            }
+
+            else if (score >= 3) {
+
+                message =
+                    "Good work! You understand most of the key concepts.";
+
+            }
+
+            else {
+
+                message =
+                    "Keep exploring the chapters and try the quiz again.";
+
+            }
+
+
+            document.getElementById("message").innerHTML =
+                message;
+
+
+            document.getElementById("result").scrollIntoView({
+                behavior: "smooth"
+            });
+
+        }
+
+    </script>
+
+
+</body>
+
+</html>
