@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <title>Money Heist | Strategic Lessons</title>
+    <title>Digital Library | Srikant Behera</title>
 
     <style>
         * {
@@ -19,9 +19,9 @@
 
         body {
             font-family: Arial, Helvetica, sans-serif;
-            background: #0b0b0b;
-            color: #f5f5f5;
-            line-height: 1.7;
+            background: #080808;
+            color: #ffffff;
+            line-height: 1.6;
         }
 
         /* NAVIGATION */
@@ -30,8 +30,8 @@
             position: sticky;
             top: 0;
             z-index: 1000;
-            background: rgba(10, 10, 10, 0.95);
-            border-bottom: 1px solid #333;
+            background: rgba(8, 8, 8, 0.96);
+            border-bottom: 1px solid #292929;
             padding: 18px 8%;
             display: flex;
             justify-content: space-between;
@@ -39,19 +39,19 @@
         }
 
         .logo {
-            font-size: 22px;
+            font-size: 21px;
             font-weight: bold;
             letter-spacing: 2px;
         }
 
         nav ul {
-            list-style: none;
             display: flex;
-            gap: 25px;
+            list-style: none;
+            gap: 28px;
         }
 
         nav a {
-            color: white;
+            color: #ffffff;
             text-decoration: none;
             font-size: 14px;
         }
@@ -63,79 +63,64 @@
         /* HERO */
 
         .hero {
-            min-height: 90vh;
+            min-height: 88vh;
+            padding: 90px 8%;
             display: flex;
             align-items: center;
-            justify-content: space-between;
-            padding: 80px 8%;
-            gap: 50px;
             background:
-                radial-gradient(circle at 70% 40%, #3b0000, transparent 35%),
-                #0b0b0b;
+                radial-gradient(circle at 80% 30%, #350000, transparent 35%),
+                #080808;
         }
 
-        .hero-text {
-            max-width: 650px;
+        .hero-content {
+            max-width: 850px;
         }
 
         .tag {
             color: #e50914;
+            font-size: 14px;
             font-weight: bold;
-            letter-spacing: 3px;
+            letter-spacing: 4px;
             text-transform: uppercase;
-            margin-bottom: 20px;
+            margin-bottom: 25px;
         }
 
         .hero h1 {
-            font-size: clamp(55px, 9vw, 110px);
+            font-size: clamp(55px, 9vw, 105px);
             line-height: 0.95;
-            margin-bottom: 25px;
             letter-spacing: -4px;
+            margin-bottom: 30px;
         }
 
         .hero h2 {
-            font-size: 26px;
+            font-size: 28px;
             font-weight: normal;
+            color: #dddddd;
             margin-bottom: 20px;
-            color: #ddd;
         }
 
         .hero p {
-            color: #aaa;
+            max-width: 700px;
+            color: #999999;
             font-size: 18px;
-            max-width: 600px;
         }
 
         .btn {
             display: inline-block;
-            margin-top: 30px;
-            padding: 14px 25px;
+            margin-top: 35px;
+            padding: 14px 28px;
             background: #e50914;
             color: white;
             text-decoration: none;
-            font-weight: bold;
             border-radius: 4px;
+            font-weight: bold;
         }
 
         .btn:hover {
             background: #b20710;
         }
 
-        /* BOOK COVER */
-
-        .cover-container {
-            width: 330px;
-            flex-shrink: 0;
-        }
-
-        .cover-container img {
-            width: 100%;
-            display: block;
-            border-radius: 8px;
-            box-shadow: 0 25px 60px rgba(0,0,0,0.7);
-        }
-
-        /* GENERAL SECTIONS */
+        /* SECTIONS */
 
         section {
             padding: 90px 8%;
@@ -147,7 +132,7 @@
         }
 
         .section-subtitle {
-            color: #999;
+            color: #999999;
             margin-bottom: 50px;
             max-width: 700px;
         }
@@ -155,123 +140,121 @@
         /* ABOUT */
 
         .about {
-            background: #111;
+            background: #111111;
         }
 
         .about-content {
-            max-width: 900px;
+            max-width: 850px;
         }
 
         .about-content p {
-            color: #ccc;
+            color: #cccccc;
             font-size: 18px;
             margin-bottom: 20px;
         }
 
-        /* LESSONS */
+        /* LIBRARY */
 
-        .lessons {
-            background: #0b0b0b;
+        .library {
+            background: #080808;
         }
 
-        .lesson-grid {
+        .book-grid {
             display: grid;
-            grid-template-columns: repeat(2, 1fr);
+            grid-template-columns: repeat(3, 1fr);
             gap: 25px;
         }
 
-        .lesson {
+        .book-card {
             background: #151515;
-            padding: 35px;
             border: 1px solid #292929;
             border-radius: 8px;
+            overflow: hidden;
             transition: 0.3s;
         }
 
-        .lesson:hover {
-            transform: translateY(-5px);
+        .book-card:hover {
+            transform: translateY(-6px);
             border-color: #e50914;
         }
 
-        .lesson-number {
-            color: #e50914;
-            font-size: 14px;
-            font-weight: bold;
-            letter-spacing: 2px;
-        }
-
-        .lesson h3 {
-            font-size: 25px;
-            margin: 12px 0;
-        }
-
-        .lesson p {
-            color: #aaa;
-        }
-
-        /* DIGITAL EXPERIENCE */
-
-        .digital {
-            background: #111;
-        }
-
-        .digital-grid {
-            display: grid;
-            grid-template-columns: repeat(4, 1fr);
-            gap: 20px;
-        }
-
-        .digital-card {
-            padding: 30px 20px;
-            background: #191919;
-            border-radius: 8px;
-            text-align: center;
-            border: 1px solid #292929;
-        }
-
-        .digital-card .icon {
-            font-size: 40px;
-            margin-bottom: 15px;
-        }
-
-        .digital-card h3 {
-            margin-bottom: 10px;
-        }
-
-        .digital-card p {
-            color: #999;
-            font-size: 14px;
-        }
-
-        /* QR */
-
-        .qr-section {
-            text-align: center;
-            background: #e50914;
-            color: white;
-        }
-
-        .qr-section .section-title {
-            margin-bottom: 10px;
-        }
-
-        .qr-box {
-            margin: 30px auto;
-            width: 220px;
-            height: 220px;
-            background: white;
-            color: #111;
+        .book-image {
+            height: 280px;
+            background: #222222;
             display: flex;
             align-items: center;
             justify-content: center;
-            font-weight: bold;
+            color: #777777;
+            font-size: 18px;
+            text-align: center;
+            padding: 20px;
+        }
+
+        .book-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .book-info {
+            padding: 28px;
+        }
+
+        .book-info h3 {
+            font-size: 27px;
+            margin-bottom: 10px;
+        }
+
+        .book-info p {
+            color: #999999;
+            margin-bottom: 20px;
+        }
+
+        .book-btn {
+            display: inline-block;
+            padding: 10px 18px;
+            border: 1px solid #e50914;
+            color: white;
+            text-decoration: none;
+            border-radius: 4px;
+            font-size: 14px;
+        }
+
+        .book-btn:hover {
+            background: #e50914;
+        }
+
+        /* COMING SOON */
+
+        .coming {
+            background: #111111;
+        }
+
+        .coming-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 20px;
+        }
+
+        .coming-card {
+            padding: 30px;
+            background: #181818;
+            border: 1px solid #292929;
             border-radius: 8px;
         }
 
-        /* AUTHOR */
+        .coming-card h3 {
+            margin-bottom: 10px;
+        }
+
+        .coming-card p {
+            color: #888888;
+        }
+
+        /* ABOUT AUTHOR */
 
         .author {
-            background: #0b0b0b;
+            background: #080808;
         }
 
         .author-box {
@@ -284,17 +267,17 @@
         }
 
         .author-box p {
-            color: #aaa;
+            color: #aaaaaa;
             font-size: 17px;
         }
 
         /* FOOTER */
 
         footer {
-            padding: 30px 8%;
+            padding: 35px 8%;
             text-align: center;
             background: #050505;
-            color: #666;
+            color: #666666;
             font-size: 14px;
         }
 
@@ -302,37 +285,24 @@
 
         @media (max-width: 900px) {
 
-            .hero {
-                flex-direction: column;
-                text-align: center;
-            }
-
-            .hero-text {
-                max-width: 700px;
-            }
-
-            .cover-container {
-                width: 280px;
-            }
-
-            .lesson-grid {
-                grid-template-columns: 1fr;
-            }
-
-            .digital-grid {
-                grid-template-columns: repeat(2, 1fr);
-            }
-
             nav {
                 flex-direction: column;
                 gap: 15px;
+            }
+
+            .book-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .coming-grid {
+                grid-template-columns: 1fr;
             }
         }
 
         @media (max-width: 600px) {
 
             nav ul {
-                gap: 12px;
+                gap: 14px;
                 flex-wrap: wrap;
                 justify-content: center;
             }
@@ -341,20 +311,16 @@
                 font-size: 12px;
             }
 
+            section {
+                padding: 65px 6%;
+            }
+
             .hero {
-                padding-top: 60px;
+                min-height: 80vh;
             }
 
             .hero h1 {
                 font-size: 60px;
-            }
-
-            .digital-grid {
-                grid-template-columns: 1fr;
-            }
-
-            section {
-                padding: 65px 6%;
             }
         }
     </style>
@@ -365,89 +331,86 @@
 <!-- NAVIGATION -->
 
 <nav>
-    <div class="logo">MONEY HEIST</div>
+
+    <div class="logo">
+        DIGITAL LIBRARY
+    </div>
 
     <ul>
-        <li><a href="#book">Book</a></li>
-        <li><a href="#lessons">Lessons</a></li>
-        <li><a href="#digital">Digital</a></li>
+        <li><a href="#home">Home</a></li>
+        <li><a href="#library">Library</a></li>
+        <li><a href="#about">About</a></li>
         <li><a href="#author">Author</a></li>
     </ul>
+
 </nav>
 
 
-<!-- HERO -->
+<!-- HERO / HOMEPAGE -->
 
-<section class="hero">
+<section class="hero" id="home">
 
-    <div class="hero-text">
+    <div class="hero-content">
 
         <div class="tag">
-            An Independent Educational Analysis
+            A Digital Companion to Physical Books
         </div>
 
-        <h1>MONEY<br>HEIST</h1>
+        <h1>
+            MORE<br>
+            THAN A<br>
+            BOOK.
+        </h1>
 
         <h2>
-            Strategic Lessons in Planning, Psychology & Leadership
+            Read the physical book.<br>
+            Explore the digital world.
         </h2>
 
         <p>
-            What if a crime drama could teach us about strategy,
-            leadership, risk management, teamwork and human psychology?
+            A digital library designed to connect physical books
+            with videos, audio, resources, quizzes, references
+            and additional learning experiences.
         </p>
 
-        <a href="#book" class="btn">
-            Explore the Book
+        <a href="#library" class="btn">
+            Explore the Library
         </a>
 
     </div>
 
-
-    <div class="cover-container">
-
-        <img
-            src="money%20image.jpg"
-            alt="Money Heist book cover"
-        >
-
-    </div>
-
 </section>
 
 
-<!-- BOOK -->
+<!-- ABOUT THE PROJECT -->
 
-<section class="about" id="book">
+<section class="about" id="about">
 
     <div class="about-content">
 
         <h2 class="section-title">
-            The Book
+            What Is This?
         </h2>
 
         <p class="section-subtitle">
-            More Than A Crime Drama.
+            A bridge between physical reading and digital learning.
         </p>
 
         <p>
-            <strong>Money Heist (La Casa de Papel)</strong> is far more
-            than a high-stakes crime drama. It can also be examined as
-            a case study in strategic planning, human psychology and
-            organizational leadership.
+            A physical book gives you the core reading experience.
+            This digital library adds another layer to it.
         </p>
 
         <p>
-            When we strip away the red jumpsuits, Dali masks and
-            fictional action, the Professor's operations provide
-            interesting lessons about preparing for complex situations,
-            managing teams and responding to unexpected problems.
+            Readers can scan a QR code inside a physical book and
+            enter a digital space containing additional videos,
+            audio, resources, quizzes, references and interactive
+            learning material.
         </p>
 
         <p>
-            This digital book explores those ideas and connects them
-            with concepts that can be applied to business, projects,
-            leadership and everyday decision-making.
+            The goal is not to replace physical books. It is to
+            make them more connected, interactive and useful.
         </p>
 
     </div>
@@ -455,118 +418,113 @@
 </section>
 
 
-<!-- STRATEGIC LESSONS -->
+<!-- LIBRARY -->
 
-<section class="lessons" id="lessons">
+<section class="library" id="library">
 
     <h2 class="section-title">
-        Strategic Lessons
+        Explore the Library
     </h2>
 
     <p class="section-subtitle">
-        Five major ideas inspired by the strategic situations
-        portrayed in Money Heist.
+        Explore the digital experiences connected to the books.
     </p>
 
 
-    <div class="lesson-grid">
+    <div class="book-grid">
 
-        <div class="lesson">
+        <!-- MONEY HEIST -->
 
-            <div class="lesson-number">
-                01 — PREPARATION
+        <div class="book-card">
+
+            <div class="book-image">
+
+                <img
+                    src="money%20image.jpg"
+                    alt="Money Heist"
+                >
+
             </div>
 
-            <h3>
-                The Power of Radical Preparation
-            </h3>
+            <div class="book-info">
 
-            <p>
-                The Professor's approach demonstrates the importance
-                of preparation before execution. Studying environments,
-                understanding possible obstacles and simulating
-                different situations can reduce uncertainty.
-            </p>
+                <h3>
+                    Money Heist
+                </h3>
+
+                <p>
+                    Strategic Lessons in Planning,
+                    Psychology & Leadership.
+                </p>
+
+                <a
+                    href="money-heist.html"
+                    class="book-btn"
+                >
+                    Explore Book →
+                </a>
+
+            </div>
 
         </div>
 
 
-        <div class="lesson">
+        <!-- BOOK 2 -->
 
-            <div class="lesson-number">
-                02 — RISK MANAGEMENT
+        <div class="book-card">
+
+            <div class="book-image">
+                BOOK 2
+                <br>
+                COMING SOON
             </div>
 
-            <h3>
-                Building Resilient Decision Trees
-            </h3>
+            <div class="book-info">
 
-            <p>
-                Strategic thinking involves preparing for multiple
-                possible outcomes. Instead of depending on one perfect
-                plan, decision-makers can identify risks and prepare
-                alternative responses.
-            </p>
+                <h3>
+                    Future Book
+                </h3>
+
+                <p>
+                    A new digital reading experience
+                    will be added here.
+                </p>
+
+                <span class="book-btn">
+                    Coming Soon
+                </span>
+
+            </div>
 
         </div>
 
 
-        <div class="lesson">
+        <!-- BOOK 3 -->
 
-            <div class="lesson-number">
-                03 — TEAMWORK
+        <div class="book-card">
+
+            <div class="book-image">
+                BOOK 3
+                <br>
+                COMING SOON
             </div>
 
-            <h3>
-                Talent Alignment & Team Dynamics
-            </h3>
+            <div class="book-info">
 
-            <p>
-                Different people bring different strengths. Effective
-                leadership involves assigning responsibilities according
-                to capabilities while managing communication, trust
-                and internal conflict.
-            </p>
+                <h3>
+                    Future Book
+                </h3>
 
-        </div>
+                <p>
+                    More books and digital experiences
+                    will be added to the library.
+                </p>
 
+                <span class="book-btn">
+                    Coming Soon
+                </span>
 
-        <div class="lesson">
-
-            <div class="lesson-number">
-                04 — EMOTIONAL INTELLIGENCE
             </div>
-
-            <h3>
-                Emotional Discipline Under Pressure
-            </h3>
-
-            <p>
-                High-pressure situations can create impulsive decisions.
-                Maintaining clarity, controlling reactions and separating
-                emotion from immediate decision-making can protect a
-                larger strategy.
-            </p>
-
-        </div>
-
-
-        <div class="lesson">
-
-            <div class="lesson-number">
-                05 — COMMUNICATION
-            </div>
-
-            <h3>
-                Mastering the Narrative
-            </h3>
-
-            <p>
-                The story surrounding an action can influence how people
-                perceive it. Money Heist provides an example of how
-                communication, symbolism and public perception can become
-                important parts of a broader strategy.
-            </p>
 
         </div>
 
@@ -575,105 +533,64 @@
 </section>
 
 
-<!-- DIGITAL EXPERIENCE -->
+<!-- FUTURE FEATURES -->
 
-<section class="digital" id="digital">
+<section class="coming">
 
     <h2 class="section-title">
-        Digital Experience
+        The Digital Experience
     </h2>
 
     <p class="section-subtitle">
-        The physical book is only the beginning. Scan the QR code
-        to explore additional digital material.
+        Every book can eventually have its own collection
+        of digital resources.
     </p>
 
 
-    <div class="digital-grid">
+    <div class="coming-grid">
 
-        <div class="digital-card">
+        <div class="coming-card">
 
-            <div class="icon">🎬</div>
-
-            <h3>Videos</h3>
+            <h3>🎬 Videos</h3>
 
             <p>
-                Video explanations and visual analysis of important
-                strategic concepts.
+                Explanations, discussions and visual learning.
             </p>
 
         </div>
 
 
-        <div class="digital-card">
+        <div class="coming-card">
 
-            <div class="icon">🎧</div>
-
-            <h3>Audio</h3>
+            <h3>🎧 Audio</h3>
 
             <p>
-                Listen to summaries and discussions while travelling
-                or studying.
+                Audio summaries and discussions.
             </p>
 
         </div>
 
 
-        <div class="digital-card">
+        <div class="coming-card">
 
-            <div class="icon">📄</div>
-
-            <h3>Resources</h3>
+            <h3>📄 Resources</h3>
 
             <p>
-                Download notes, diagrams, learning material and
-                additional resources.
+                Notes, PDFs, diagrams and additional material.
             </p>
 
         </div>
 
 
-        <div class="digital-card">
+        <div class="coming-card">
 
-            <div class="icon">📝</div>
-
-            <h3>Quizzes</h3>
+            <h3>📝 Quizzes</h3>
 
             <p>
-                Test your understanding of the strategic concepts
-                discussed in the book.
+                Interactive questions to test understanding.
             </p>
 
         </div>
-
-    </div>
-
-</section>
-
-
-<!-- QR CODE -->
-
-<section class="qr-section">
-
-    <h2 class="section-title">
-        Connected Reading
-    </h2>
-
-    <p>
-        One scan. More knowledge.
-    </p>
-
-    <p>
-        Scan the QR code printed inside the physical book
-        to access this digital experience.
-    </p>
-
-
-    <div class="qr-box">
-
-        QR CODE
-        <br>
-        COMING SOON
 
     </div>
 
@@ -687,7 +604,7 @@
     <div class="author-box">
 
         <h2 class="section-title">
-            About the Author
+            About the Creator
         </h2>
 
         <h3>
@@ -695,14 +612,9 @@
         </h3>
 
         <p>
-            Srikant Behera is a commerce student interested in
-            business, finance, strategy, technology and communication.
-        </p>
-
-        <p>
-            Through this project, he explores how stories from popular
-            culture can be connected with real-world concepts in
-            management, leadership and strategic thinking.
+            A commerce student exploring the intersection of
+            books, technology, business, strategy and digital
+            learning.
         </p>
 
     </div>
@@ -719,7 +631,8 @@
     </p>
 
     <p>
-        An independent educational project inspired by Money Heist.
+        Digital Library — Connecting physical books with
+        digital experiences.
     </p>
 
 </footer>
