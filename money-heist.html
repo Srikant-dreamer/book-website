@@ -1,538 +1,350 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
-
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-    <title>Money Heist | Digital Library</title>
-
-    <style>
-
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-
-        html {
-            scroll-behavior: smooth;
-        }
-
-        body {
-            font-family: Arial, Helvetica, sans-serif;
-            background: #080808;
-            color: #ffffff;
-            line-height: 1.7;
-        }
-
-        /* NAVIGATION */
-
-        nav {
-            position: sticky;
-            top: 0;
-            z-index: 1000;
-
-            background: rgba(8, 8, 8, 0.96);
-
-            border-bottom: 1px solid #292929;
-
-            padding: 18px 8%;
-
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-        }
-
-        .logo {
-            font-size: 20px;
-            font-weight: bold;
-            letter-spacing: 2px;
-        }
-
-        nav ul {
-            display: flex;
-            list-style: none;
-            gap: 25px;
-        }
-
-        nav a {
-            color: white;
-            text-decoration: none;
-            font-size: 14px;
-        }
-
-        nav a:hover {
-            color: #e50914;
-        }
-
-        /* HERO */
-
-        .hero {
-
-            min-height: 85vh;
-
-            padding: 80px 8%;
-
-            display: grid;
-
-            grid-template-columns: 1fr 1fr;
-
-            gap: 60px;
-
-            align-items: center;
-
-            background:
-                radial-gradient(
-                    circle at 80% 30%,
-                    #350000,
-                    transparent 35%
-                ),
-                #080808;
-        }
-
-        .hero-image {
-
-            width: 100%;
-
-            max-width: 430px;
-
-            margin: auto;
-
-            border-radius: 8px;
-
-            overflow: hidden;
-
-            border: 1px solid #333;
-        }
-
-        .hero-image img {
-
-            width: 100%;
-
-            display: block;
-        }
-
-        .tag {
-
-            color: #e50914;
-
-            font-size: 14px;
-
-            font-weight: bold;
-
-            letter-spacing: 4px;
-
-            text-transform: uppercase;
-
-            margin-bottom: 20px;
-        }
-
-        .hero h1 {
-
-            font-size: clamp(55px, 8vw, 100px);
-
-            line-height: 0.9;
-
-            letter-spacing: -4px;
-
-            margin-bottom: 25px;
-        }
-
-        .hero h2 {
-
-            font-size: 25px;
-
-            font-weight: normal;
-
-            color: #dddddd;
-
-            margin-bottom: 20px;
-        }
-
-        .hero p {
-
-            color: #999999;
-
-            font-size: 17px;
-
-            max-width: 650px;
-        }
-
-        .back-btn {
-
-            display: inline-block;
-
-            margin-top: 30px;
-
-            padding: 12px 22px;
-
-            border: 1px solid #e50914;
-
-            color: white;
-
-            text-decoration: none;
-
-            border-radius: 4px;
-        }
-
-        .back-btn:hover {
-
-            background: #e50914;
-        }
-
-        /* SECTIONS */
-
-        section {
-
-            padding: 90px 8%;
-        }
-
-        .section-title {
-
-            font-size: 42px;
-
-            margin-bottom: 15px;
-        }
-
-        .section-subtitle {
-
-            color: #999999;
-
-            max-width: 750px;
-
-            margin-bottom: 45px;
-        }
-
-        /* ABOUT */
-
-        .about {
-
-            background: #111111;
-        }
-
-        .about-box {
-
-            max-width: 900px;
-        }
-
-        .about-box p {
-
-            color: #cccccc;
-
-            font-size: 18px;
-
-            margin-bottom: 20px;
-        }
-
-        /* LESSONS */
-
-        .lessons {
-
-            background: #080808;
-        }
-
-        .lesson-grid {
-
-            display: grid;
-
-            grid-template-columns: repeat(2, 1fr);
-
-            gap: 25px;
-        }
-
-        .lesson {
-
-            background: #151515;
-
-            border: 1px solid #292929;
-
-            border-radius: 8px;
-
-            padding: 35px;
-
-            transition: 0.3s;
-        }
-
-        .lesson:hover {
-
-            transform: translateY(-5px);
-
-            border-color: #e50914;
-        }
-
-        .lesson-number {
-
-            color: #e50914;
-
-            font-size: 14px;
-
-            font-weight: bold;
-
-            letter-spacing: 2px;
-
-            margin-bottom: 10px;
-        }
-
-        .lesson h3 {
-
-            font-size: 26px;
-
-            margin-bottom: 15px;
-        }
-
-        .lesson p {
-
-            color: #aaaaaa;
-
-            margin-bottom: 15px;
-        }
-
-        .lesson ul {
-
-            padding-left: 20px;
-
-            color: #bbbbbb;
-        }
-
-        .lesson li {
-
-            margin-bottom: 8px;
-        }
-
-        /* DIGITAL EXPERIENCE */
-
-        .digital {
-
-            background: #111111;
-        }
-
-        .digital-grid {
-
-            display: grid;
-
-            grid-template-columns: repeat(4, 1fr);
-
-            gap: 20px;
-        }
-
-        .digital-card {
-
-            background: #181818;
-
-            border: 1px solid #292929;
-
-            border-radius: 8px;
-
-            padding: 30px;
-
-            text-align: center;
-        }
-
-        .digital-card .icon {
-
-            font-size: 38px;
-
-            margin-bottom: 15px;
-        }
-
-        .digital-card h3 {
-
-            margin-bottom: 10px;
-        }
-
-        .digital-card p {
-
-            color: #888888;
-
-            font-size: 14px;
-        }
-
-        /* QR */
-
-        .qr-section {
-
-            background: #080808;
-
-            text-align: center;
-        }
-
-        .qr-box {
-
-            max-width: 650px;
-
-            margin: auto;
-
-            padding: 40px;
-
-            border: 1px solid #292929;
-
-            border-radius: 8px;
-
-            background: #111111;
-        }
-
-        .qr-placeholder {
-
-            width: 180px;
-
-            height: 180px;
-
-            margin: 25px auto;
-
-            border: 2px dashed #555555;
-
-            display: flex;
-
-            align-items: center;
-
-            justify-content: center;
-
-            color: #777777;
-
-            text-align: center;
-        }
-
-        .qr-box p {
-
-            color: #999999;
-        }
-
-        /* REFERENCES */
-
-        .references {
-
-            background: #111111;
-        }
-
-        .references-box {
-
-            max-width: 850px;
-        }
-
-        .references-box p {
-
-            color: #aaaaaa;
-
-            margin-bottom: 15px;
-        }
-
-        /* AUTHOR */
-
-        .author {
-
-            background: #080808;
-        }
-
-        .author-box {
-
-            max-width: 800px;
-        }
-
-        .author-box h3 {
-
-            font-size: 30px;
-
-            margin-bottom: 15px;
-        }
-
-        .author-box p {
-
-            color: #aaaaaa;
-
-            font-size: 17px;
-        }
-
-        /* FOOTER */
-
-        footer {
-
-            padding: 35px 8%;
-
-            text-align: center;
-
-            background: #050505;
-
-            color: #666666;
-
-            font-size: 14px;
-        }
-
-        /* MOBILE */
-
-        @media (max-width: 900px) {
-
-            nav {
-
-                flex-direction: column;
-
-                gap: 15px;
-            }
-
-            .hero {
-
-                grid-template-columns: 1fr;
-
-                text-align: center;
-            }
-
-            .hero p {
-
-                margin: auto;
-            }
-
-            .lesson-grid {
-
-                grid-template-columns: 1fr;
-            }
-
-            .digital-grid {
-
-                grid-template-columns: repeat(2, 1fr);
-            }
-
-        }
-
-        @media (max-width: 600px) {
-
-            nav ul {
-
-                gap: 12px;
-
-                flex-wrap: wrap;
-
-                justify-content: center;
-            }
-
-            nav a {
-
-                font-size: 12px;
-            }
-
-            section {
-
-                padding: 65px 6%;
-            }
-
-            .hero h1 {
-
-                font-size: 60px;
-            }
-
-            .digital-grid {
-
-                grid-template-columns: 1fr;
-            }
-
-        }
-
-    </style>
-
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Money Heist | Digital Book</title>
+
+<style>
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, Helvetica, sans-serif;
+    background: #080808;
+    color: #f5f5f5;
+    line-height: 1.6;
+}
+
+/* NAVIGATION */
+
+nav {
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    background: #0d0d0d;
+    border-bottom: 1px solid #222;
+    padding: 18px 8%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.logo {
+    color: #e50914;
+    font-size: 22px;
+    font-weight: bold;
+    letter-spacing: 1px;
+}
+
+nav ul {
+    list-style: none;
+    display: flex;
+    gap: 25px;
+}
+
+nav ul li a {
+    color: #ddd;
+    text-decoration: none;
+    font-size: 14px;
+}
+
+nav ul li a:hover {
+    color: #e50914;
+}
+
+/* HERO */
+
+.hero {
+    min-height: 85vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    padding: 70px 20px;
+    background:
+        linear-gradient(rgba(0,0,0,0.75), rgba(0,0,0,0.9)),
+        url("money%20image.jpg") center/cover no-repeat;
+}
+
+.hero-content {
+    max-width: 850px;
+}
+
+.hero h1 {
+    font-size: 70px;
+    color: #e50914;
+    letter-spacing: 4px;
+    margin-bottom: 15px;
+}
+
+.hero h2 {
+    font-size: 25px;
+    font-weight: normal;
+    margin-bottom: 20px;
+}
+
+.hero p {
+    max-width: 700px;
+    margin: auto;
+    color: #ccc;
+    font-size: 17px;
+}
+
+.back-btn {
+    display: inline-block;
+    margin-top: 30px;
+    padding: 12px 24px;
+    border: 1px solid #e50914;
+    color: white;
+    text-decoration: none;
+    border-radius: 5px;
+}
+
+.back-btn:hover {
+    background: #e50914;
+}
+
+/* GENERAL SECTIONS */
+
+section {
+    padding: 80px 8%;
+}
+
+.section-title {
+    text-align: center;
+    margin-bottom: 50px;
+}
+
+.section-title h2 {
+    font-size: 36px;
+    margin-bottom: 10px;
+}
+
+.section-title p {
+    color: #aaa;
+}
+
+/* ABOUT */
+
+.about {
+    max-width: 900px;
+    margin: auto;
+    text-align: center;
+}
+
+.about p {
+    color: #ccc;
+    margin-bottom: 20px;
+}
+
+/* LESSONS */
+
+.lesson-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 25px;
+}
+
+.lesson-card {
+    background: #111;
+    border: 1px solid #252525;
+    padding: 30px;
+    border-radius: 10px;
+    transition: 0.3s;
+}
+
+.lesson-card:hover {
+    transform: translateY(-5px);
+    border-color: #e50914;
+}
+
+.chapter {
+    color: #e50914;
+    font-size: 13px;
+    font-weight: bold;
+    letter-spacing: 1px;
+}
+
+.lesson-card h3 {
+    margin: 12px 0;
+    font-size: 22px;
+}
+
+.lesson-card p {
+    color: #bbb;
+}
+
+.lesson-card ul {
+    margin: 15px 0 15px 20px;
+    color: #ccc;
+}
+
+.connection {
+    color: #aaa;
+    font-size: 14px;
+}
+
+/* DIGITAL EXPERIENCE */
+
+.digital-section {
+    background: #0d0d0d;
+}
+
+.digital-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 25px;
+}
+
+.digital-card {
+    background: #151515;
+    border: 1px solid #292929;
+    padding: 35px 25px;
+    border-radius: 10px;
+    text-align: center;
+    transition: 0.3s;
+}
+
+.digital-card:hover {
+    border-color: #e50914;
+    transform: translateY(-5px);
+}
+
+.digital-icon {
+    font-size: 40px;
+    margin-bottom: 15px;
+}
+
+.digital-card h3 {
+    font-size: 22px;
+    margin-bottom: 10px;
+}
+
+.digital-card p {
+    color: #aaa;
+    margin-bottom: 20px;
+}
+
+/* DIGITAL BUTTON */
+
+.digital-btn {
+    display: inline-block;
+    padding: 10px 18px;
+    background: #e50914;
+    color: white;
+    text-decoration: none;
+    border-radius: 5px;
+    font-size: 14px;
+    font-weight: bold;
+}
+
+.digital-btn:hover {
+    background: #b20710;
+}
+
+/* QR SECTION */
+
+.qr-section {
+    text-align: center;
+}
+
+.qr-box {
+    width: 220px;
+    height: 220px;
+    border: 2px dashed #e50914;
+    margin: 30px auto;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #e50914;
+    font-weight: bold;
+}
+
+.qr-section p {
+    color: #aaa;
+}
+
+/* REFERENCES */
+
+.references {
+    max-width: 900px;
+    margin: auto;
+}
+
+.references ul {
+    padding-left: 25px;
+}
+
+.references li {
+    margin-bottom: 12px;
+    color: #bbb;
+}
+
+/* CREATOR */
+
+.creator {
+    text-align: center;
+    background: #0d0d0d;
+}
+
+.creator h3 {
+    font-size: 25px;
+    margin-bottom: 10px;
+}
+
+.creator p {
+    color: #aaa;
+}
+
+/* FOOTER */
+
+footer {
+    text-align: center;
+    padding: 30px;
+    background: #050505;
+    color: #777;
+    font-size: 14px;
+}
+
+/* MOBILE */
+
+@media (max-width: 700px) {
+
+    nav {
+        flex-direction: column;
+        gap: 15px;
+    }
+
+    nav ul {
+        gap: 12px;
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+
+    .hero h1 {
+        font-size: 45px;
+    }
+
+    .hero h2 {
+        font-size: 20px;
+    }
+
+    section {
+        padding: 60px 5%;
+    }
+
+}
+
+</style>
 </head>
 
 <body>
-
 
 <!-- NAVIGATION -->
 
@@ -543,37 +355,25 @@
     </div>
 
     <ul>
-
         <li>
-            <a href="index.html">
-                Library
-            </a>
+            <a href="index.html">Library</a>
         </li>
 
         <li>
-            <a href="#about">
-                About
-            </a>
+            <a href="#about">About</a>
         </li>
 
         <li>
-            <a href="#lessons">
-                Lessons
-            </a>
+            <a href="#lessons">Lessons</a>
         </li>
 
         <li>
-            <a href="#digital">
-                Digital
-            </a>
+            <a href="#digital">Digital</a>
         </li>
 
         <li>
-            <a href="#references">
-                References
-            </a>
+            <a href="#references">References</a>
         </li>
-
     </ul>
 
 </nav>
@@ -581,96 +381,61 @@
 
 <!-- HERO -->
 
-<section class="hero">
+<header class="hero">
 
-    <div class="hero-image">
+    <div class="hero-content">
 
-        <img
-            src="money%20image.jpg"
-            alt="Money Heist"
-        >
-
-    </div>
-
-
-    <div>
-
-        <div class="tag">
-            Digital Book Experience
-        </div>
-
-        <h1>
-            MONEY<br>
-            HEIST
-        </h1>
+        <h1>MONEY HEIST</h1>
 
         <h2>
-            Strategic Lessons in Planning,
-            Psychology & Leadership
+            Strategic Lessons in Planning, Psychology & Leadership
         </h2>
 
         <p>
-
-            Explore the strategic ideas hidden inside
-            Money Heist — from radical preparation and
-            decision-making to team dynamics,
+            Explore the strategic ideas hidden inside Money Heist —
+            from radical preparation and decision-making to team dynamics,
             emotional discipline and narrative building.
-
         </p>
 
-        <a
-            href="index.html"
-            class="back-btn"
-        >
+        <a href="index.html" class="back-btn">
             ← Back to Digital Library
         </a>
 
     </div>
 
-</section>
+</header>
 
 
 <!-- ABOUT -->
 
-<section class="about" id="about">
+<section id="about">
 
-    <div class="about-box">
+    <div class="section-title">
 
-        <h2 class="section-title">
-            About This Book
-        </h2>
+        <h2>About This Book</h2>
 
-        <p class="section-subtitle">
-            Looking beyond the story to understand
-            the strategic thinking behind it.
+        <p>
+            Looking beyond the story to understand the strategic thinking behind it.
+        </p>
+
+    </div>
+
+    <div class="about">
+
+        <p>
+            Money Heist is widely known for its dramatic story,
+            complex characters and carefully planned heists.
         </p>
 
         <p>
-
-            Money Heist is widely known for its
-            dramatic story, complex characters and
-            carefully planned heists.
-
+            This digital book explores the series through another perspective:
+            planning, leadership, psychology, decision-making and team management.
         </p>
 
         <p>
-
-            This digital book explores the series
-            through another perspective:
-            planning, leadership, psychology,
-            decision-making and team management.
-
-        </p>
-
-        <p>
-
-            The lessons presented here are designed
-            as educational analysis. They encourage
-            readers to think about how strategic
-            principles can apply to business,
-            projects, leadership and everyday
-            decision-making.
-
+            The lessons presented here are designed as educational analysis.
+            They encourage readers to think about how strategic principles can
+            apply to business, projects, leadership and everyday decision-making.
         </p>
 
     </div>
@@ -680,311 +445,188 @@
 
 <!-- LESSONS -->
 
-<section class="lessons" id="lessons">
+<section id="lessons">
 
-    <h2 class="section-title">
-        Strategic Lessons
-    </h2>
+    <div class="section-title">
 
-    <p class="section-subtitle">
-        Five major ideas explored through the
-        characters, decisions and events of
-        Money Heist.
-    </p>
+        <h2>Strategic Lessons</h2>
+
+        <p>
+            Five major ideas explored through the characters,
+            decisions and events of Money Heist.
+        </p>
+
+    </div>
 
 
     <div class="lesson-grid">
 
 
-        <!-- LESSON 1 -->
+        <!-- CHAPTER 3.1 -->
 
-        <div class="lesson">
+        <div class="lesson-card">
 
-            <div class="lesson-number">
+            <span class="chapter">
                 CHAPTER 3.1
-            </div>
+            </span>
 
             <h3>
                 The Power of Radical Preparation
             </h3>
 
             <p>
-
-                The Professor demonstrates how
-                preparation can shape execution.
-                Before the operation begins,
-                he studies the environment,
-                security systems, people and
-                possible obstacles.
-
+                The Professor demonstrates how preparation can shape execution.
+                Before the operation begins, he studies the environment,
+                security systems, people and possible obstacles.
             </p>
 
             <ul>
-
-                <li>
-                    Study the environment before acting.
-                </li>
-
-                <li>
-                    Identify possible variables.
-                </li>
-
-                <li>
-                    Simulate different situations.
-                </li>
-
-                <li>
-                    Prepare before execution.
-                </li>
-
+                <li>Study the environment before acting.</li>
+                <li>Identify possible variables.</li>
+                <li>Simulate different situations.</li>
+                <li>Prepare before execution.</li>
             </ul>
 
-            <p>
-
-                <strong>
-                    Real-world connection:
-                </strong>
-
-                Market research, competitive
-                intelligence, workflow simulation
-                and project preparation.
-
+            <p class="connection">
+                <strong>Real-world connection:</strong>
+                Market research, competitive intelligence,
+                workflow simulation and project preparation.
             </p>
 
         </div>
 
 
-        <!-- LESSON 2 -->
+        <!-- CHAPTER 3.2 -->
 
-        <div class="lesson">
+        <div class="lesson-card">
 
-            <div class="lesson-number">
+            <span class="chapter">
                 CHAPTER 3.2
-            </div>
+            </span>
 
             <h3>
                 Building Resilient Decision Trees
             </h3>
 
             <p>
-
-                A strong plan does not depend on
-                everything going perfectly.
-
-                The Professor repeatedly prepares
-                alternatives when unexpected events
-                occur.
-
+                A strong plan does not depend on everything going perfectly.
+                The Professor repeatedly prepares alternatives when
+                unexpected events occur.
             </p>
 
             <ul>
-
-                <li>
-                    Plan B.
-                </li>
-
-                <li>
-                    Plan C.
-                </li>
-
-                <li>
-                    Plan D.
-                </li>
-
-                <li>
-                    Identify points of failure.
-                </li>
-
+                <li>Plan B.</li>
+                <li>Plan C.</li>
+                <li>Plan D.</li>
+                <li>Identify points of failure.</li>
             </ul>
 
-            <p>
-
-                <strong>
-                    Real-world connection:
-                </strong>
-
-                Risk mitigation, contingency
-                planning and pivot strategies.
-
+            <p class="connection">
+                <strong>Real-world connection:</strong>
+                Risk mitigation, contingency planning and pivot strategies.
             </p>
 
         </div>
 
 
-        <!-- LESSON 3 -->
+        <!-- CHAPTER 3.3 -->
 
-        <div class="lesson">
+        <div class="lesson-card">
 
-            <div class="lesson-number">
+            <span class="chapter">
                 CHAPTER 3.3
-            </div>
+            </span>
 
             <h3>
                 Talent Alignment & Team Dynamics
             </h3>
 
             <p>
-
-                Each member of the team brings
-                different strengths.
-
-                The challenge is putting the
-                right person in the right role.
-
+                Each member of the team brings different strengths.
+                The challenge is putting the right person in the right role.
             </p>
 
             <ul>
-
-                <li>
-                    Nairobi — quality control
-                    and printing.
-                </li>
-
-                <li>
-                    Rio — cybersecurity.
-                </li>
-
-                <li>
-                    Berlin — ground leadership.
-                </li>
-
-                <li>
-                    Different personalities
-                    create different challenges.
-                </li>
-
+                <li>Nairobi — quality control and printing.</li>
+                <li>Rio — cybersecurity.</li>
+                <li>Berlin — ground leadership.</li>
+                <li>Different personalities create different challenges.</li>
             </ul>
 
-            <p>
-
-                <strong>
-                    Leadership lesson:
-                </strong>
-
-                Team performance depends not only
-                on individual talent but also on
-                communication, morale and conflict
-                management.
-
+            <p class="connection">
+                <strong>Leadership lesson:</strong>
+                Team performance depends not only on individual talent
+                but also on communication, morale and conflict management.
             </p>
 
         </div>
 
 
-        <!-- LESSON 4 -->
+        <!-- CHAPTER 3.4 -->
 
-        <div class="lesson">
+        <div class="lesson-card">
 
-            <div class="lesson-number">
+            <span class="chapter">
                 CHAPTER 3.4
-            </div>
+            </span>
 
             <h3>
                 Emotional Discipline Under Pressure
             </h3>
 
             <p>
-
-                High-pressure situations can make
-                people react emotionally.
-
-                Several decisions in the story
-                demonstrate how anger, panic,
-                impulsive behaviour and personal
-                relationships can affect strategy.
-
+                High-pressure situations can make people react emotionally.
+                Several decisions in the story demonstrate how anger,
+                panic, impulsive behaviour and personal relationships
+                can affect strategy.
             </p>
 
             <ul>
-
-                <li>
-                    Control reactions under pressure.
-                </li>
-
-                <li>
-                    Separate emotion from important
-                    decisions.
-                </li>
-
-                <li>
-                    Maintain clarity during uncertainty.
-                </li>
-
+                <li>Control reactions under pressure.</li>
+                <li>Separate emotion from important decisions.</li>
+                <li>Maintain clarity during uncertainty.</li>
             </ul>
 
-            <p>
-
-                <strong>
-                    Real-world connection:
-                </strong>
-
-                Emotional intelligence,
-                decision-making and crisis management.
-
+            <p class="connection">
+                <strong>Real-world connection:</strong>
+                Emotional intelligence, decision-making and crisis management.
             </p>
 
         </div>
 
 
-        <!-- LESSON 5 -->
+        <!-- CHAPTER 3.5 -->
 
-        <div class="lesson">
+        <div class="lesson-card">
 
-            <div class="lesson-number">
+            <span class="chapter">
                 CHAPTER 3.5
-            </div>
+            </span>
 
             <h3>
                 Mastering the Narrative
             </h3>
 
             <p>
-
-                The Professor understands that
-                controlling the operation is only
-                part of the challenge.
-
-                Public perception also matters.
-
+                The Professor understands that controlling the operation
+                is only part of the challenge. Public perception also matters.
             </p>
 
             <p>
-
-                The story shows how a carefully
-                constructed narrative can influence
-                how people understand an event.
-
+                The story shows how a carefully constructed narrative
+                can influence how people understand an event.
             </p>
 
             <ul>
-
-                <li>
-                    Understand your audience.
-                </li>
-
-                <li>
-                    Communicate a clear purpose.
-                </li>
-
-                <li>
-                    Build a meaningful story.
-                </li>
-
-                <li>
-                    Understand public perception.
-                </li>
-
+                <li>Understand your audience.</li>
+                <li>Communicate a clear purpose.</li>
+                <li>Build a meaningful story.</li>
+                <li>Understand public perception.</li>
             </ul>
 
-            <p>
-
-                <strong>
-                    Business connection:
-                </strong>
-
-                Branding, communication,
-                positioning and storytelling.
-
+            <p class="connection">
+                <strong>Business connection:</strong>
+                Branding, communication, positioning and storytelling.
             </p>
 
         </div>
@@ -997,27 +639,28 @@
 
 <!-- DIGITAL EXPERIENCE -->
 
-<section class="digital" id="digital">
+<section id="digital" class="digital-section">
 
-    <h2 class="section-title">
-        Digital Experience
-    </h2>
+    <div class="section-title">
 
-    <p class="section-subtitle">
+        <h2>Digital Experience</h2>
 
-        The physical book is only the beginning.
-        Explore additional digital material connected
-        to the book.
+        <p>
+            The physical book is only the beginning.
+            Explore additional digital material connected to the book.
+        </p>
 
-    </p>
+    </div>
 
 
     <div class="digital-grid">
 
 
+        <!-- VIDEOS -->
+
         <div class="digital-card">
 
-            <div class="icon">
+            <div class="digital-icon">
                 🎬
             </div>
 
@@ -1026,16 +669,21 @@
             </h3>
 
             <p>
-                Visual explanations and discussions
-                will be added here.
+                Visual explanations and discussions will be added here.
             </p>
+
+            <a href="#" class="digital-btn">
+                Coming Soon
+            </a>
 
         </div>
 
 
+        <!-- AUDIO -->
+
         <div class="digital-card">
 
-            <div class="icon">
+            <div class="digital-icon">
                 🎧
             </div>
 
@@ -1044,16 +692,21 @@
             </h3>
 
             <p>
-                Audio summaries and discussions
-                will be available here.
+                Audio summaries and discussions will be available here.
             </p>
+
+            <a href="#" class="digital-btn">
+                Coming Soon
+            </a>
 
         </div>
 
 
+        <!-- RESOURCES -->
+
         <div class="digital-card">
 
-            <div class="icon">
+            <div class="digital-icon">
                 📄
             </div>
 
@@ -1062,16 +715,21 @@
             </h3>
 
             <p>
-                Notes, PDFs, diagrams and
-                additional material.
+                Notes, PDFs, diagrams and additional material.
             </p>
+
+            <a href="money-heist-resources.html" class="digital-btn">
+                Explore Resources →
+            </a>
 
         </div>
 
 
+        <!-- QUIZ -->
+
         <div class="digital-card">
 
-            <div class="icon">
+            <div class="digital-icon">
                 📝
             </div>
 
@@ -1080,9 +738,12 @@
             </h3>
 
             <p>
-                Test your understanding with
-                interactive questions.
+                Test your understanding with interactive questions.
             </p>
+
+            <a href="#" class="digital-btn">
+                Coming Soon
+            </a>
 
         </div>
 
@@ -1092,109 +753,99 @@
 </section>
 
 
-<!-- QR -->
+<!-- QR CODE -->
 
 <section class="qr-section">
 
-    <div class="qr-box">
+    <div class="section-title">
 
-        <h2 class="section-title">
-            Scan & Explore
-        </h2>
+        <h2>Scan & Explore</h2>
 
         <p>
-
-            Scan the QR code printed inside the
-            physical book to access this digital
-            experience.
-
-        </p>
-
-
-        <div class="qr-placeholder">
-
-            QR CODE<br>
-            COMING SOON
-
-        </div>
-
-
-        <p>
-
-            The QR code will connect directly to
-            this Money Heist digital page.
-
+            Scan the QR code printed inside the physical book
+            to access this digital experience.
         </p>
 
     </div>
+
+
+    <div class="qr-box">
+
+        QR CODE<br>
+        COMING SOON
+
+    </div>
+
+    <p>
+        The QR code will connect directly to this Money Heist digital page.
+    </p>
 
 </section>
 
 
 <!-- REFERENCES -->
 
-<section class="references" id="references">
+<section id="references">
 
-    <div class="references-box">
+    <div class="section-title">
 
-        <h2 class="section-title">
-            References
-        </h2>
-
-        <p class="section-subtitle">
-            Sources and supporting material used
-            for the educational analysis.
-        </p>
+        <h2>References</h2>
 
         <p>
-            • Money Heist — series created by
-            Álex Pina.
+            Sources and supporting material used for the educational analysis.
         </p>
 
-        <p>
-            • Character and storyline analysis
-            from the series.
-        </p>
+    </div>
 
-        <p>
-            • Concepts related to strategic
-            planning, leadership, decision-making,
-            risk management and communication.
-        </p>
 
-        <p>
-            More references and resources will be
-            added as the digital library develops.
-        </p>
+    <div class="references">
+
+        <ul>
+
+            <li>
+                Money Heist — series created by Álex Pina.
+            </li>
+
+            <li>
+                Character and storyline analysis from the series.
+            </li>
+
+            <li>
+                Concepts related to strategic planning,
+                leadership, decision-making, risk management
+                and communication.
+            </li>
+
+            <li>
+                More references and resources will be added
+                as the digital library develops.
+            </li>
+
+        </ul>
 
     </div>
 
 </section>
 
 
-<!-- AUTHOR -->
+<!-- CREATOR -->
 
-<section class="author">
+<section class="creator">
 
-    <div class="author-box">
+    <div class="section-title">
 
-        <h2 class="section-title">
-            About the Creator
-        </h2>
-
-        <h3>
-            Srikant Behera
-        </h3>
-
-        <p>
-
-            A curious mind turning ideas into
-            experiences where books, technology
-            and imagination come together.
-
-        </p>
+        <h2>About the Creator</h2>
 
     </div>
+
+    <h3>
+        Srikant Behera
+    </h3>
+
+    <p>
+        A curious mind turning ideas into experiences where
+        books, technology and imagination come together.
+    </p>
 
 </section>
 
@@ -1203,18 +854,14 @@
 
 <footer>
 
-    <p>
-        © 2026 Srikant Behera
-    </p>
+    © 2026 Srikant Behera
 
-    <p>
-        Digital Library — Connecting physical
-        books with digital experiences.
-    </p>
+    <br>
+
+    Digital Library — Connecting physical books with digital experiences.
 
 </footer>
 
 
 </body>
-
 </html>
