@@ -1,0 +1,815 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Money Heist | Resources</title>
+
+    <style>
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: Arial, Helvetica, sans-serif;
+            background: #080808;
+            color: #ffffff;
+            line-height: 1.7;
+        }
+
+        nav {
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+
+            background: rgba(8, 8, 8, 0.96);
+
+            border-bottom: 1px solid #292929;
+
+            padding: 18px 8%;
+
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 20px;
+            font-weight: bold;
+            letter-spacing: 2px;
+        }
+
+        nav ul {
+            display: flex;
+            list-style: none;
+            gap: 25px;
+        }
+
+        nav a {
+            color: white;
+            text-decoration: none;
+            font-size: 14px;
+        }
+
+        nav a:hover {
+            color: #e50914;
+        }
+
+        .hero {
+            padding: 100px 8%;
+
+            background:
+                radial-gradient(
+                    circle at 80% 30%,
+                    #350000,
+                    transparent 35%
+                ),
+                #080808;
+        }
+
+        .tag {
+            color: #e50914;
+
+            font-size: 14px;
+
+            font-weight: bold;
+
+            letter-spacing: 4px;
+
+            text-transform: uppercase;
+
+            margin-bottom: 20px;
+        }
+
+        .hero h1 {
+            font-size: clamp(50px, 8vw, 90px);
+
+            line-height: 0.95;
+
+            letter-spacing: -4px;
+
+            margin-bottom: 25px;
+        }
+
+        .hero p {
+            max-width: 750px;
+
+            color: #999999;
+
+            font-size: 18px;
+        }
+
+        .back-btn {
+            display: inline-block;
+
+            margin-top: 30px;
+
+            padding: 12px 22px;
+
+            border: 1px solid #e50914;
+
+            color: white;
+
+            text-decoration: none;
+
+            border-radius: 4px;
+        }
+
+        .back-btn:hover {
+            background: #e50914;
+        }
+
+        section {
+            padding: 80px 8%;
+        }
+
+        .section-title {
+            font-size: 40px;
+
+            margin-bottom: 15px;
+        }
+
+        .section-subtitle {
+            color: #999999;
+
+            max-width: 750px;
+
+            margin-bottom: 45px;
+        }
+
+        .resource-grid {
+            display: grid;
+
+            grid-template-columns: repeat(2, 1fr);
+
+            gap: 25px;
+        }
+
+        .resource-card {
+            background: #151515;
+
+            border: 1px solid #292929;
+
+            border-radius: 8px;
+
+            padding: 32px;
+
+            transition: 0.3s;
+        }
+
+        .resource-card:hover {
+            transform: translateY(-5px);
+
+            border-color: #e50914;
+        }
+
+        .resource-number {
+            color: #e50914;
+
+            font-size: 13px;
+
+            font-weight: bold;
+
+            letter-spacing: 2px;
+
+            margin-bottom: 10px;
+        }
+
+        .resource-card h3 {
+            font-size: 25px;
+
+            margin-bottom: 12px;
+        }
+
+        .resource-card p {
+            color: #aaaaaa;
+
+            margin-bottom: 20px;
+        }
+
+        .resource-btn {
+            display: inline-block;
+
+            padding: 9px 17px;
+
+            border: 1px solid #e50914;
+
+            color: white;
+
+            text-decoration: none;
+
+            border-radius: 4px;
+
+            font-size: 13px;
+        }
+
+        .resource-btn:hover {
+            background: #e50914;
+        }
+
+        .tools {
+            background: #111111;
+        }
+
+        .tools-grid {
+            display: grid;
+
+            grid-template-columns: repeat(3, 1fr);
+
+            gap: 20px;
+        }
+
+        .tool {
+            background: #181818;
+
+            border: 1px solid #292929;
+
+            border-radius: 8px;
+
+            padding: 30px;
+        }
+
+        .tool-icon {
+            font-size: 35px;
+
+            margin-bottom: 12px;
+        }
+
+        .tool h3 {
+            margin-bottom: 10px;
+        }
+
+        .tool p {
+            color: #999999;
+
+            font-size: 14px;
+        }
+
+        .takeaways {
+            background: #080808;
+        }
+
+        .takeaway-box {
+            max-width: 900px;
+
+            background: #151515;
+
+            border-left: 4px solid #e50914;
+
+            padding: 35px;
+        }
+
+        .takeaway-box ul {
+            padding-left: 22px;
+
+            color: #cccccc;
+        }
+
+        .takeaway-box li {
+            margin-bottom: 12px;
+        }
+
+        footer {
+            padding: 35px 8%;
+
+            text-align: center;
+
+            background: #050505;
+
+            color: #666666;
+
+            font-size: 14px;
+        }
+
+        @media (max-width: 900px) {
+
+            nav {
+                flex-direction: column;
+
+                gap: 15px;
+            }
+
+            .resource-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .tools-grid {
+                grid-template-columns: 1fr;
+            }
+
+        }
+
+        @media (max-width: 600px) {
+
+            nav ul {
+                gap: 12px;
+
+                flex-wrap: wrap;
+
+                justify-content: center;
+            }
+
+            nav a {
+                font-size: 12px;
+            }
+
+            section {
+                padding: 60px 6%;
+            }
+
+            .hero {
+                padding: 80px 6%;
+            }
+
+        }
+
+    </style>
+
+</head>
+
+
+<body>
+
+
+<!-- NAVIGATION -->
+
+<nav>
+
+    <div class="logo">
+        MONEY HEIST
+    </div>
+
+    <ul>
+
+        <li>
+            <a href="money-heist.html">
+                Book
+            </a>
+        </li>
+
+        <li>
+            <a href="#chapters">
+                Chapters
+            </a>
+        </li>
+
+        <li>
+            <a href="#tools">
+                Tools
+            </a>
+        </li>
+
+        <li>
+            <a href="#takeaways">
+                Takeaways
+            </a>
+        </li>
+
+    </ul>
+
+</nav>
+
+
+<!-- HERO -->
+
+<section class="hero">
+
+    <div class="tag">
+        Digital Resource Center
+    </div>
+
+    <h1>
+        MONEY<br>
+        HEIST
+    </h1>
+
+    <p>
+        Explore chapter summaries, strategic frameworks,
+        study material and key takeaways connected to
+        the Money Heist digital book.
+    </p>
+
+    <a
+        href="money-heist.html"
+        class="back-btn"
+    >
+        ← Back to Money Heist
+    </a>
+
+</section>
+
+
+<!-- CHAPTER RESOURCES -->
+
+<section id="chapters">
+
+    <h2 class="section-title">
+        Chapter Resources
+    </h2>
+
+    <p class="section-subtitle">
+        Quick access to the five strategic lessons
+        explored in the book.
+    </p>
+
+
+    <div class="resource-grid">
+
+
+        <div class="resource-card">
+
+            <div class="resource-number">
+                CHAPTER 3.1
+            </div>
+
+            <h3>
+                Radical Preparation
+            </h3>
+
+            <p>
+                Explore how preparation, research and
+                simulation can improve execution.
+            </p>
+
+            <a
+                href="money-heist.html#lessons"
+                class="resource-btn"
+            >
+                Read Lesson
+            </a>
+
+        </div>
+
+
+        <div class="resource-card">
+
+            <div class="resource-number">
+                CHAPTER 3.2
+            </div>
+
+            <h3>
+                Resilient Decision Trees
+            </h3>
+
+            <p>
+                Understand contingency planning,
+                alternative strategies and risk
+                mitigation.
+            </p>
+
+            <a
+                href="money-heist.html#lessons"
+                class="resource-btn"
+            >
+                Read Lesson
+            </a>
+
+        </div>
+
+
+        <div class="resource-card">
+
+            <div class="resource-number">
+                CHAPTER 3.3
+            </div>
+
+            <h3>
+                Team Dynamics
+            </h3>
+
+            <p>
+                Explore talent alignment, team roles,
+                communication and conflict management.
+            </p>
+
+            <a
+                href="money-heist.html#lessons"
+                class="resource-btn"
+            >
+                Read Lesson
+            </a>
+
+        </div>
+
+
+        <div class="resource-card">
+
+            <div class="resource-number">
+                CHAPTER 3.4
+            </div>
+
+            <h3>
+                Emotional Discipline
+            </h3>
+
+            <p>
+                Understand how emotional reactions can
+                affect decisions during pressure.
+            </p>
+
+            <a
+                href="money-heist.html#lessons"
+                class="resource-btn"
+            >
+                Read Lesson
+            </a>
+
+        </div>
+
+
+        <div class="resource-card">
+
+            <div class="resource-number">
+                CHAPTER 3.5
+            </div>
+
+            <h3>
+                Mastering the Narrative
+            </h3>
+
+            <p>
+                Explore storytelling, communication,
+                positioning and public perception.
+            </p>
+
+            <a
+                href="money-heist.html#lessons"
+                class="resource-btn"
+            >
+                Read Lesson
+            </a>
+
+        </div>
+
+
+    </div>
+
+</section>
+
+
+<!-- STRATEGIC TOOLS -->
+
+<section class="tools" id="tools">
+
+    <h2 class="section-title">
+        Strategic Tools
+    </h2>
+
+    <p class="section-subtitle">
+        Visual and practical frameworks that can
+        help readers understand the lessons.
+    </p>
+
+
+    <div class="tools-grid">
+
+
+        <div class="tool">
+
+            <div class="tool-icon">
+                🌳
+            </div>
+
+            <h3>
+                Decision Tree
+            </h3>
+
+            <p>
+                A visual framework for understanding
+                Plan A, Plan B and contingency
+                decisions.
+            </p>
+
+        </div>
+
+
+        <div class="tool">
+
+            <div class="tool-icon">
+                👥
+            </div>
+
+            <h3>
+                Team Role Analysis
+            </h3>
+
+            <p>
+                Understand how different strengths
+                can be aligned with different roles.
+            </p>
+
+        </div>
+
+
+        <div class="tool">
+
+            <div class="tool-icon">
+                ⚠️
+            </div>
+
+            <h3>
+                Risk Planning
+            </h3>
+
+            <p>
+                Identify potential risks, points of
+                failure and possible responses.
+            </p>
+
+        </div>
+
+
+    </div>
+
+</section>
+
+
+<!-- DOWNLOADABLE MATERIAL -->
+
+<section>
+
+    <h2 class="section-title">
+        Downloadable Resources
+    </h2>
+
+    <p class="section-subtitle">
+        Additional study material will be added here
+        as the digital library develops.
+    </p>
+
+
+    <div class="resource-grid">
+
+
+        <div class="resource-card">
+
+            <div class="resource-number">
+                PDF
+            </div>
+
+            <h3>
+                Strategic Study Notes
+            </h3>
+
+            <p>
+                A concise collection of the major
+                strategic concepts from the book.
+            </p>
+
+            <span class="resource-btn">
+                Coming Soon
+            </span>
+
+        </div>
+
+
+        <div class="resource-card">
+
+            <div class="resource-number">
+                PDF
+            </div>
+
+            <h3>
+                Quick Revision Sheet
+            </h3>
+
+            <p>
+                A short revision guide covering
+                the five major lessons.
+            </p>
+
+            <span class="resource-btn">
+                Coming Soon
+            </span>
+
+        </div>
+
+
+        <div class="resource-card">
+
+            <div class="resource-number">
+                VISUAL
+            </div>
+
+            <h3>
+                Strategy Diagram
+            </h3>
+
+            <p>
+                Visual diagrams explaining planning,
+                risk and decision-making.
+            </p>
+
+            <span class="resource-btn">
+                Coming Soon
+            </span>
+
+        </div>
+
+
+        <div class="resource-card">
+
+            <div class="resource-number">
+                NOTES
+            </div>
+
+            <h3>
+                Key Concepts
+            </h3>
+
+            <p>
+                Important concepts and definitions
+                for quick reference.
+            </p>
+
+            <span class="resource-btn">
+                Coming Soon
+            </span>
+
+        </div>
+
+
+    </div>
+
+</section>
+
+
+<!-- KEY TAKEAWAYS -->
+
+<section class="takeaways" id="takeaways">
+
+    <h2 class="section-title">
+        Key Takeaways
+    </h2>
+
+    <p class="section-subtitle">
+        Five ideas to remember after exploring
+        the Money Heist strategy lessons.
+    </p>
+
+
+    <div class="takeaway-box">
+
+        <ul>
+
+            <li>
+                Preparation reduces uncertainty
+                before execution.
+            </li>
+
+            <li>
+                Strong plans include alternatives
+                when circumstances change.
+            </li>
+
+            <li>
+                Teams perform better when individual
+                strengths are aligned with suitable roles.
+            </li>
+
+            <li>
+                Emotional discipline can help maintain
+                clarity during difficult decisions.
+            </li>
+
+            <li>
+                Communication and storytelling can
+                influence how people understand an idea.
+            </li>
+
+        </ul>
+
+    </div>
+
+</section>
+
+
+<!-- FOOTER -->
+
+<footer>
+
+    <p>
+        © 2026 Srikant Behera
+    </p>
+
+    <p>
+        Digital Library — Connecting physical
+        books with digital experiences.
+    </p>
+
+</footer>
+
+
+</body>
+
+</html>
